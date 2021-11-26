@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import List from "../components/List";
 import styles from "./App.module.scss";
 import { useState, useEffect } from "react";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 export default function App() {
   let list_container = styles.list_container;

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import DeleteListButton from "../DeleteListButton/index.js";
 import ListItem from "../ListItem/index.js";
 import styles from "./List.module.scss";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 export default function List(props) {
   const [listTitle, setListTitle] = useState("");
@@ -13,11 +12,15 @@ export default function List(props) {
   const toggleDeleteButton = () => {
     setDeleteButtonVisible((visible) => !visible);
   };
+
+  //supprimer tâches
   const deleteListItem = (id) => {
     setListItems((listItems) =>
       listItems.filter((listItem) => listItem.props.id !== id)
     );
   };
+
+  //creer tâches
   const createListItem = () => {
     setListItemsKey(listItemsKey + 1);
     setListItems((listItems) => [
