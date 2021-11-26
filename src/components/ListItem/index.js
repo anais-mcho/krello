@@ -4,6 +4,7 @@ import styles from "./ListItem.module.scss";
 
 export default function ListItem(props) {
   const [createListItem, setcreateListItem] = useState(true);
+  const [listItemBanner, setListItemBanner] = useState("");
   const [listItemTitle, setListItemTitle] = useState("");
   const [listItemDescription, setListItemDescription] = useState("");
   const [listItemCompleted, setListItemCompleted] = useState(false);
