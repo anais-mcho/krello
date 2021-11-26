@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import DeleteListButton from "../DeleteListButton/index.js";
 import ListItem from "../ListItem/index.js";
 import styles from "./List.module.scss";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 export default function List(props) {
   const [listTitle, setListTitle] = useState("");
