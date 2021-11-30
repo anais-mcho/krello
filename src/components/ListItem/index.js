@@ -119,6 +119,8 @@ export default function ListItem(props) {
       {openPopUp === true ? (
         <ListItemPopUp
           setOpenPopUp={setOpenPopUp}
+          listItemBanner={listItemBanner}
+          setListItemBanner={setListItemBanner}
           listItemTitle={listItemTitle}
           setListItemTitle={setListItemTitle}
           listItemDescription={listItemDescription}

@@ -2,16 +2,24 @@ import React, { useState, useEffect } from "react";
 import styles from "./ListItemPopUp.module.scss";
 
 export default function ListItemPopUp(props) {
+  const [listItemBannerModified, setListItemBannerModified] = useState("");
   const [listItemTitleModified, setListItemTitleModified] = useState("");
   const [listItemDescriptionModified, setListItemDescriptionModified] =
     useState("");
   useEffect(() => {
     setListItemTitleModified(props.listItemTitle);
   }, [props.listItemTitle]);
+  const [urlImage, setUrlImage] = useState("");
+
   const saveListItem = () => {
-    if (listItemTitleModified !== props.listItemTitle) {
+    if (
+      listItemTitleModified !== props.listItemTitle &&
+      listItemBannerModified !== props.listItemBanner
+    ) {
+      props.setListItemBanner(listItemBannerModified);
       props.setListItemTitle(listItemTitleModified);
     } else {
+      props.setListItemBanner(props.listItemBanner);
       props.setListItemTitle(props.listItemTitle);
     }
   };
@@ -59,6 +67,26 @@ export default function ListItemPopUp(props) {
             />
           </svg>
         </button>
+
+        <div className={styles.bottom_content}>
+          <input
+            onChange={(e) => {
+              const reader = new FileReader();
+              reader.addEventListener("load", () => {
+                setUrlImage(reader.result);
+              });
+              reader.readAsDataURL(e.target.files[0]);
+            }}
+            className={styles.button_primary}
+            type="file"
+            size="50"
+            title="Image"
+          />
+        </div>
+        <div>
+          <img src={urlImage} />
+        </div>
+
         <h3>Task title :</h3>
         <textarea
           className={styles.list_item_title}

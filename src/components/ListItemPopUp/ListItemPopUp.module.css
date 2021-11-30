@@ -1,0 +1,83 @@
+.behind_popup {
+  z-index: 50;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  right: 0;
+}
+
+.list_item_popup {
+  z-index: 100;
+  position: fixed;
+  top: 50%;
+  right: 50%;
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  width: 75vw;
+  height: 500px;
+  padding: 35px 35px 10px 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.list_item_popup .cross {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.list_item_popup .list_item_title {
+  width: 100%;
+  font-weight: 600;
+  margin-bottom: auto;
+}
+
+.list_item_popup .list_item_title:focus {
+  font-weight: 400;
+}
+
+.list_item_popup .bottom_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.list_item_popup .bottom_content .list_item_description {
+  width: 100%;
+  height: 100px;
+  background-color: #c4c4c4;
+  margin-bottom: 30px;
+}
+
+.list_item_popup .bottom_content .button_primary {
+  background-color: #005de8;
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+  color: #f0f0f0;
+  border-radius: 5px;
+  padding: 0 20px;
+  cursor: pointer;
+  height: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+  display: block;
+}
+/*# sourceMappingURL=ListItemPopUp.module.css.map */
