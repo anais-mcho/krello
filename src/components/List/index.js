@@ -37,19 +37,22 @@ export default function List(props) {
       <li className={styles.list_wrapper}>
         <form className={styles.list} onSubmit={() => setCreateList(false)}>
           <input
+            placeholder="Enter list title..."
             onChange={(e) => {
               setListTitle(e.target.value);
             }}
             className={styles.list_title_input}
             autoFocus
           />
+        </form>
+        <form className={styles.list} onSubmit={() => setCreateList(false)}>
           <button
             className={styles.button_primary}
             onClick={() => {
               setCreateList(false);
             }}
           >
-            Add
+            Add List
           </button>
           <button
             className={styles.button_delete}
@@ -92,30 +95,6 @@ export default function List(props) {
           }}
           className={styles.list_title}
         ></textarea>
-        <button className={styles.cross} onClick={() => createListItem()}>
-          <svg
-            width="20px"
-            height="20px"
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M10 1V19"
-              stroke="#838383"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M1 10H19"
-              stroke="#838383"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </button>
         <button
           className={styles.more_actions}
           onClick={() => toggleDeleteButton()}
@@ -151,6 +130,32 @@ export default function List(props) {
           </svg>
         </button>
       </div>
+      <button className={styles.cross} onClick={() => createListItem()}>
+        <svg
+          width="20px"
+          height="20px"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 1V19"
+            stroke="#838383"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M1 10H19"
+            stroke="#838383"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+        <p> Add a card</p>
+      </button>
+
       {deleteButtonVisible ? (
         <DeleteListButton handleDelete={props.handleDelete} id={props.id} />
       ) : null}
