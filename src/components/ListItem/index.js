@@ -16,13 +16,17 @@ export default function ListItem(props) {
           className={styles.list_item}
           onSubmit={() => setcreateListItem(false)}
         >
-          <input autoFocus onChange={(e) => setListItemTitle(e.target.value)} />
+          <input
+            placeholder="Enter a title for this card..."
+            autoFocus
+            onChange={(e) => setListItemTitle(e.target.value)}
+          />
           <div className={styles.button_container}>
             <button
               className={styles.button_primary}
               onClick={() => setcreateListItem(false)}
             >
-              Add
+              Add Card
             </button>
             <button
               className={styles.button_delete}
