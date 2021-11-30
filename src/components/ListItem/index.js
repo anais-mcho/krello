@@ -125,6 +125,8 @@ export default function ListItem(props) {
           setListItemTitle={setListItemTitle}
           listItemDescription={listItemDescription}
           setListItemDescription={setListItemDescription}
+          listItemBanner={listItemBanner}
+          setListItemBanner={setListItemBanner}
         />
       ) : null}
     </li>

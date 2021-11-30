@@ -9,7 +9,7 @@ export default function ListItemPopUp(props) {
   useEffect(() => {
     setListItemTitleModified(props.listItemTitle);
   }, [props.listItemTitle]);
-  const [urlImage, setUrlImage] = useState("");
+  const reader = new FileReader();
 
   const saveListItem = () => {
     if (
@@ -29,6 +29,18 @@ export default function ListItemPopUp(props) {
       props.setListItemDescription(props.listItemDescription);
     }
   };
+
+  const printImg = (e) => {
+    reader.addEventListener("load", () => {
+      if (e.target.files[0]) {
+        props.setListItemBanner(reader.result);
+      }
+      console.log(reader.result);
+    });
+
+    reader.readAsDataURL(e.target.files[0]);
+  };
+
   return (
     <>
       <div
@@ -70,21 +82,15 @@ export default function ListItemPopUp(props) {
 
         <div className={styles.bottom_content}>
           <input
-            onChange={(e) => {
-              const reader = new FileReader();
-              reader.addEventListener("load", () => {
-                setUrlImage(reader.result);
-              });
-              reader.readAsDataURL(e.target.files[0]);
-            }}
+            onChange={(e) => printImg(e)}
             className={styles.button_primary}
             type="file"
             size="50"
             title="Image"
           />
         </div>
-        <div>
-          <img src={urlImage} />
+        <div className={styles.list_item_image}>
+          <img src={props.listItemBanner} />
         </div>
 
         <h3>Task title :</h3>
