@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import styles from "./ListItemPopUp.module.scss";
 
 export default function ListItemPopUp(props) {
-  const [listItemBannerModified, setListItemBannerModified] = useState("");
   const [listItemTitleModified, setListItemTitleModified] = useState("");
   const [listItemDescriptionModified, setListItemDescriptionModified] =
     useState("");
@@ -12,11 +11,7 @@ export default function ListItemPopUp(props) {
   const reader = new FileReader();
 
   const saveListItem = () => {
-    if (
-      listItemTitleModified !== props.listItemTitle &&
-      listItemBannerModified !== props.listItemBanner
-    ) {
-      props.setListItemBanner(listItemBannerModified);
+    if (listItemTitleModified !== props.listItemTitle) {
       props.setListItemTitle(listItemTitleModified);
     } else {
       props.setListItemBanner(props.listItemBanner);

@@ -49,6 +49,12 @@
     &:focus {
       font-weight: 400;
     }
+    textarea {
+      height: 200px;
+      background-color: 1px solid red;
+      padding: 0;
+      margin: 0;
+    }
   }
   .bottom_content {
     display: flex;
