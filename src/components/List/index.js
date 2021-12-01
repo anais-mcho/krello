@@ -130,6 +130,7 @@ export default function List(props) {
           </svg>
         </button>
       </div>
+      <ul className={styles.list_items}>{listItems}</ul>
       <button className={styles.cross} onClick={() => createListItem()}>
         <svg
           width="20px"
@@ -153,13 +154,12 @@ export default function List(props) {
             strokeLinejoin="round"
           />
         </svg>
-        <p> Add a card</p>
+        <p> Create a new card</p>
       </button>
 
       {deleteButtonVisible ? (
         <DeleteListButton handleDelete={props.handleDelete} id={props.id} />
       ) : null}
-      <ul className={styles.list_items}>{listItems}</ul>
     </li>
   );
 }
