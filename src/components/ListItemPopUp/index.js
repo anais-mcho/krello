@@ -30,9 +30,7 @@ export default function ListItemPopUp(props) {
       if (e.target.files[0]) {
         props.setListItemBanner(reader.result);
       }
-      console.log(reader.result);
     });
-
     reader.readAsDataURL(e.target.files[0]);
   };
 
@@ -76,32 +74,47 @@ export default function ListItemPopUp(props) {
         </button>
 
         <div className={styles.bottom_content}>
-          <input
-            onChange={(e) => printImg(e)}
+          <label
+            for="files"
             className={styles.button_primary}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <p>Choisir une image</p>
+          </label>
+          <input
+            id="files"
+            onChange={(e) => printImg(e)}
             type="file"
             size="50"
             title="Image"
           />
         </div>
-        <div className={styles.list_item_image}>
-          <img src={props.listItemBanner} />
-        </div>
+        {props.listItemBanner && (
+          <div className={styles.list_item_image}>
+            <img src={props.listItemBanner} />
+          </div>
+        )}
 
-        <h3>Task title :</h3>
-        <textarea
-          className={styles.list_item_title}
-          onChange={(e) => {
-            setListItemTitleModified(e.target.value);
-          }}
-          defaultValue={props.listItemTitle}
-        ></textarea>
         <div className={styles.bottom_content}>
+          <h3>Task title :</h3>
+          <textarea
+            className={styles.list_item_title}
+            onChange={(e) => setListItemTitleModified(e.target.value)}
+            defaultValue={props.listItemTitle}
+            minlength="5"
+            maxlength="30"
+          ></textarea>
           <h3>Description :</h3>
           <textarea
             className={styles.list_item_description}
             onChange={(e) => setListItemDescriptionModified(e.target.value)}
             defaultValue={props.listItemDescription}
+            minlength="5"
+            maxlength="30"
           ></textarea>
           <button
             className={styles.button_primary}
